@@ -1,0 +1,22 @@
+[
+    {
+        "agent_id": "agent-123",
+        "name": "Data Analyzer",
+        "kpi": 0.95,
+        "metrics": {
+            "accuracy": 0.95,
+            "response_time": 150,
+            "throughput": 1000
+        }
+    },
+    {
+        "agent_id": "agent-456",
+        "name": "Customer Support",
+        "kpi": 0.88,
+        "metrics": {
+            "accuracy": 0.85,
+            "response_time": 300,
+            "throughput": 500
+        }
+    }
+]

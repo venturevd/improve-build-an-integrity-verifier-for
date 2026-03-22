@@ -1,0 +1,4 @@
+agent_id,metric_name,value,timestamp
+agent-123,accuracy,0.95,2024-03-22T10:00:00Z
+agent-123,response_time,150,2024-03-22T10:00:00Z
+agent-123,throughput,1000,2024-03-22T10:00:00Z
