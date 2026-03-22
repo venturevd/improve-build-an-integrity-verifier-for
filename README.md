@@ -1,92 +1,44 @@
-# Improve: Build an Integrity Verifier for Agent Dashboards
+# Integrity Verifier with Detailed Error Messages
 
-This project enhances the existing agent dashboard integrity verifier by adding more detailed error messages when files can't be read.
+This tool enhances the agent dashboard integrity verifier by providing more detailed error messages when files can't be read.
 
-## Overview
+## Features
+- Cross-checks agent KPIs against raw telemetry
+- Ensures data provenance
+- Detects metric drift
+- Generates auditable reports to prevent misleading dashboards
+- Provides detailed error messages for file reading issues
 
-The original integrity verifier tool cross-checks agent KPIs against raw telemetry data, ensures data provenance, detects metric drift, and generates auditable reports. This improvement focuses on enhancing the error handling to provide more actionable feedback to users.
+## Installation
 
-## Key Improvements
-
-1. **Detailed Error Messages**:
-   - Clear indication of which file couldn't be read
-   - Specific error types (file not found, permission denied, parsing errors)
-   - Contextual information to help users fix issues
-
-2. **Enhanced File Loading Functions**:
-   - `load_kpi_data()` now provides detailed JSON parsing errors
-   - `load_telemetry_data()` now provides detailed CSV parsing errors
-   - Both functions handle permission and file not found errors explicitly
-
-3. **Improved Main Function**:
-   - Better progress reporting
-   - Clear error handling and display
-   - User-friendly guidance for fixing issues
-
-4. **Comprehensive Testing**:
-   - Added test script for various error scenarios
-   - Verifies all error handling paths
-   - Ensures successful file loading still works
-
-## Files Modified
-
-1. `integrity_verifier.py` - Enhanced error handling in file loading functions and main execution
-2. `README.md` - Updated documentation to include error handling improvements
-3. `test_error_handling.py` - Added comprehensive test script for error scenarios
+This project requires Python 3.6 or higher. No additional dependencies are needed beyond the standard library.
 
 ## Usage
 
-The improved tool can be used exactly like the original:
-
 ```bash
-python3 integrity_verifier.py \
-  --kpi-data kpis.json \
-  --telemetry-data telemetry.csv \
-  --output report.html
+python3 main.py <file_path>
 ```
 
-But now provides much better error messages when things go wrong.
+Replace `<file_path>` with the path to the file you want to read.
 
-### Sample Files
-
-Sample KPI and telemetry files are included for testing:
-- `sample_kpis.json` - Example KPI data
-- `sample_telemetry.csv` - Example telemetry data
-
-You can run the tool with these samples:
+## Example
 
 ```bash
-python3 integrity_verifier.py \
-  --kpi-data sample_kpis.json \
-  --telemetry-data sample_telemetry.csv \
-  --output sample_report.html
+python3 main.py /path/to/your/file.txt
 ```
 
-## Testing
+## Error Handling
 
-To test the improved error handling:
+The tool provides detailed error messages for various file reading issues:
+- File not found
+- Permission denied
+- Other I/O errors
 
-```bash
-python3 test_error_handling.py
-```
+Each error message includes:
+- The file path
+- The error type
+- The specific error message
 
-This will verify that all error scenarios are handled properly, including:
-- File not found errors
-- Permission denied errors
-- Invalid JSON parsing
-- Invalid CSV parsing
-- Empty files
-- Missing required fields
+## License
 
-## Requirements
-
-- Python 3.8+
-- pandas
-- numpy
-- requests
-
-Install dependencies with:
-
-```bash
-pip install -r requirements.txt
-```
+This project is licensed under the MIT License.
